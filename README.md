@@ -9,7 +9,7 @@
 - [Features](#features)
 - [Install](#install)
 - [Usage](#usage)
-- [Links](#links)
+- [Doc](#doc)
 - [License](#license)
 
 ## Introduction
@@ -60,9 +60,9 @@ export default {
 
 [⬆ Back to Top](#table-of-contents)
 
-## Links
+## doc
 
-- [docs](https://Sweet-KK.github.io/dom-screenshot/)
+- [doc](https://Sweet-KK.github.io/dom-screenshot/)
 
 [⬆ Back to Top](#table-of-contents)
 

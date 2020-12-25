@@ -1,4 +1,4 @@
-import Component from './dom-screenshot.vue'
+import Component from './components/DomScreenshot.vue'
 
 Component.install = Vue => {
   Vue.component(Component.name, Component)

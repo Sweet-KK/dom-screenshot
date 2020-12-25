@@ -9,7 +9,7 @@
 
 <script>
 import { saveAs } from 'file-saver'
-const domtoimage = require('./dom-to-image/dist/dom-to-image.min.js')
+const domtoimage = require('@/forkSrc/dom-to-image/dist/dom-to-image.min.js')
 const html2canvas = require('html2canvas')
 const typeMapping = {
   jpg: { fn: 'toJpeg', suffix: 'jpg' },
@@ -62,7 +62,7 @@ export default {
       default: 'jpg'
     },
     /**
-     * 请求图片时添加时间戳参数，禁用缓存
+     * 请求图片时添加时间戳参数，禁用缓存。使用时可解决html2canvas不加载图片的问题，启用该参数会先请求图片转换为blob再进行截图，因此执行时间增加
      */
     cacheBust: {
       type: Boolean,
@@ -84,7 +84,7 @@ export default {
     },
     /**
      * 默认使用dom-to-image，在ios及ie下使用html2canvas
-     * 由于图片跨域问题，部分浏览器在默认处理下可能无法截图，此参数true则使用html2canvas，false则使用dom-to-image
+     * 由于图片跨域问题，部分浏览器在默认处理下可能无法截图，请使用该参数自行控制
      */
     useHtml2canvas: Boolean
   },
@@ -334,3 +334,64 @@ export default {
   }
 }
 </script>
+
+<docs>
+
+## Examples
+
+基本用法:
+
+```vue
+<template>
+  <div>
+    <p>截图容器：</p>
+    <dom-screenshot
+      class="screenshot-con"
+      :scale="2"
+      :options="shotOptions"
+      :beforeShot="onBeforeShot"
+      dist-type="png"
+      ref="shotDom"
+    >
+      <img src="/favicon.ico">
+    </dom-screenshot>
+
+    <p><button @click="onClick">点击</button>输出图片：</p>
+    <img style="width:100%;" :src="src">
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      shotOptions: {},
+      src: ''
+    }
+  },
+  methods: {
+    onClick() {
+      this.$refs.shotDom.shot()
+        .then(data => {
+          window.console.log(data)
+          this.src = data
+        })
+        .catch(err => {
+          window.console.log(err)
+        })
+    },
+    onBeforeShot () {
+      window.console.log('截图前的钩子')
+    }
+  }
+}
+</script>
+<style scoped>
+.screenshot-con {
+  margin: 0;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+</style>
+```
+</docs>
