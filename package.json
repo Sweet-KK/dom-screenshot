@@ -1,0 +1,67 @@
+{
+  "name": "@sweet-kk/dom-screenshot",
+  "version": "1.0.0",
+  "description": "整合dom-to-image及html2canvas，开箱即用的dom截图组件",
+  "author": "https://github.com/Sweet-KK",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sweet-KK/dom-screenshot.git"
+  },
+  "keywords": [
+    "screenshot",
+    "domscreenshot",
+    "dom-to-image",
+    "html2canvas",
+    "domshot",
+    "dom截图",
+    "dom转图片"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "main": "lib/dom-screenshot.umd.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name dom-screenshot --dest lib src/index.js",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.0.0-rc.7",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "lint-staged": "^9.5.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=10.15.3"
+  }
+}
