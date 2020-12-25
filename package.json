@@ -1,5 +1,5 @@
 {
-  "name": "@sweet-kk/dom-screenshot",
+  "name": "dom-screenshot",
   "version": "1.0.0",
   "description": "整合dom-to-image及html2canvas，开箱即用的dom截图组件",
   "author": "https://github.com/Sweet-KK",

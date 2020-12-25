@@ -27,7 +27,7 @@
 ## Install
 
 ```
-npm install @sweet-kk/dom-screenshot
+npm install dom-screenshot
 ```
 
 [⬆ Back to Top](#table-of-contents)
@@ -46,7 +46,7 @@ npm install @sweet-kk/dom-screenshot
 </template>
 
 <script>
-import DomScreenshot from '@sweet-kk/dom-screenshot'
+import DomScreenshot from 'dom-screenshot'
 export default {
   components: { DomScreenshot },
   methods: {
