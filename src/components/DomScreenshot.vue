@@ -353,7 +353,7 @@ export default {
       dist-type="png"
       ref="shotDom"
     >
-      <img src="/favicon.ico">
+      <img src="https://raw.githubusercontent.com/Sweet-KK/dom-screenshot/main/docs/favicon.ico">
     </dom-screenshot>
 
     <p><button @click="onClick">点击</button>输出图片：</p>

@@ -5,7 +5,7 @@
   "author": "https://github.com/Sweet-KK",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "npm run test:unit && npm run lib && npm run doc",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "lib": "vue-cli-service build --target lib --name dom-screenshot --dest lib src/index.js",

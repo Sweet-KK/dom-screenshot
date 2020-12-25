@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import DomScreenshot from '@/dom-screenshot.vue'
+import DomScreenshot from '@/components/DomScreenshot.vue'
 
 describe('dom-screenshot', () => {
   const useHtml2canvas = true
