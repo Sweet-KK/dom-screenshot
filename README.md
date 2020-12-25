@@ -27,7 +27,7 @@
 ## Install
 
 ```
-npm install dom-screenshot
+npm install @kk306484328/dom-screenshot
 ```
 
 [⬆ Back to Top](#table-of-contents)
@@ -46,7 +46,7 @@ npm install dom-screenshot
 </template>
 
 <script>
-import DomScreenshot from 'dom-screenshot'
+import DomScreenshot from '@kk306484328/dom-screenshot'
 export default {
   components: { DomScreenshot },
   methods: {
