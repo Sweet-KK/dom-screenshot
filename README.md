@@ -1,5 +1,7 @@
-# dom-screenshot(未发布)
+# dom-screenshot
 
+[![NPM Download](https://badgen.net/npm/dm/@kk306484328/dom-screenshot)](https://www.npmjs.com/package/@kk306484328/dom-screenshot)
+[![NPM Version](https://badge.fury.io/js/%40kk306484328%2Fdom-screenshot.svg)](https://www.npmjs.com/package/@kk306484328/dom-screenshot)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Sweet-KK/dom-screenshot/pulls)
 
 
