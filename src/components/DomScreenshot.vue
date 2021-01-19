@@ -9,7 +9,7 @@
 
 <script>
 import { saveAs } from 'file-saver'
-const domtoimage = require('@/forkSrc/dom-to-image/dist/dom-to-image.min.js')
+const domtoimage = require('dom-to-image')
 const html2canvas = require('html2canvas')
 const typeMapping = {
   jpg: { fn: 'toJpeg', suffix: 'jpg' },
@@ -38,7 +38,7 @@ export default {
      */
     scale: {
       type: Number,
-      default: 1
+      default: 2
     },
     /**
      * distType为jpg时输出的图片质量
@@ -86,7 +86,10 @@ export default {
      * 默认使用dom-to-image，在ios及ie下使用html2canvas
      * 由于图片跨域问题，部分浏览器在默认处理下可能无法截图，请使用该参数自行控制
      */
-    useHtml2canvas: Boolean
+    useHtml2canvas: {
+      type: Boolean,
+      default: undefined
+    }
   },
   data () {
     return {
@@ -120,8 +123,14 @@ export default {
         }
       } else {
         return {
-          width: el.offsetWidth,
-          height: el.offsetHeight,
+          width: el.offsetWidth * this.scale,
+          height: el.offsetHeight * this.scale,
+          style: {
+            transform: `scale(${this.scale})`,
+            transformOrigin: '0 0',
+            width: `${el.offsetWidth}px`,
+            height: `${el.offsetHeight}px`
+          },
           imagePlaceholder:
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAABkCAYAAADDhn8LAAACpUlEQVR4Xu3VsRHDMAwEQbH/BtmN3YDl4NJf5Qiw4I3Ovffz+AgQ+ClwBOJlEHgXEIjXQeCPgEA8DwIC8QYINAF/kOZmakRAICOHtmYTEEhzMzUiIJCRQ1uzCQikuZkaERDIyKGt2QQE0txMjQgIZOTQ1mwCAmlupkYEBDJyaGs2AYE0N1MjAgIZObQ1m4BAmpupEQGBjBzamk1AIM3N1IiAQEYObc0mIJDmZmpEQCAjh7ZmExBIczM1IiCQkUNbswkIpLmZGhEQyMihrdkEBNLcTI0ICGTk0NZsAgJpbqZGBAQycmhrNgGBNDdTIwICGTm0NZuAQJqbqREBgYwc2ppNQCDNzdSIgEBGDm3NJiCQ5mZqREAgI4e2ZhMQSHMzNSIgkJFDW7MJCKS5mRoREMjIoa3ZBATS3EyNCAhk5NDWbAICaW6mRgQEMnJoazYBgTQ3UyMCAhk5tDWbgECam6kRAYGMHNqaTUAgzc3UiIBARg5tzSYgkOZmakRAICOHtmYTEEhzMzUiIJCRQ1uzCQikuZkaERDIyKGt2QQE0txMjQgIZOTQ1mwCAmlupkYEBDJyaGs2AYE0N1MjAgIZObQ1m4BAmpupEQGBjBzamk1AIM3N1IiAQEYObc0mIJDmZmpEQCAjh7ZmExBIczM1IiCQkUNbswkIpLmZGhEQyMihrdkEBNLcTI0ICGTk0NZsAgJpbqZGBAQycmhrNgGBNDdTIwICGTm0NZuAQJqbqREBgYwc2ppNQCDNzdSIgEBGDm3NJiCQ5mZqREAgI4e2ZhMQSHMzNSIgkJFDW7MJCKS5mRoREMjIoa3ZBATS3EyNCAhk5NDWbAICaW6mRgQEMnJoazYBgTQ3UyMCAhk5tDWbgECam6kRAYGMHNqaTUAgzc3UiMAXqPVhMNxoJT0AAAAASUVORK5CYII=',
           ...this.options,
@@ -168,6 +177,7 @@ export default {
       }
     },
     async conmonHandle () {
+      console.log('domtoimage')
       const el = this.$refs.targetDom
       const name = this.getFileName()
       const func = typeMapping[this.distType].fn
@@ -184,6 +194,7 @@ export default {
         })
     },
     async anotherHandle () {
+      console.log('html2canvas')
       const el = this.$refs.targetDom
       const name = this.getFileName()
       if (!window.html2canvas) {
@@ -347,7 +358,6 @@ export default {
     <p>截图容器：</p>
     <dom-screenshot
       class="screenshot-con"
-      :scale="2"
       :options="shotOptions"
       :beforeShot="onBeforeShot"
       dist-type="png"

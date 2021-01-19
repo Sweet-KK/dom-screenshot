@@ -21,7 +21,7 @@
 [⬆ Back to Top](#table-of-contents)
 
 ## Features
-- 整合dom-to-image及html2canvas，统一了一些参数去解决图片模糊，不加载等问题
+- 整合dom-to-image及html2canvas，解决图片模糊，不加载等问题
 - 判断设备类型使用合适的方法，减少遇到兼容性问题无法运行而造成困扰，也可传入useHtml2canvas去自主控制
 
 [⬆ Back to Top](#table-of-contents)
