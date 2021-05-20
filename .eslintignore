@@ -2,7 +2,6 @@ node_modules
 /dist
 /lib
 /docs
-/src/forkSrc/dom-to-image
 
 # Editor directories and files
 .idea

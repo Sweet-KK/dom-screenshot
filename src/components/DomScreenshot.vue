@@ -9,8 +9,7 @@
 
 <script>
 import { saveAs } from 'file-saver'
-const domtoimage = require('dom-to-image')
-const html2canvas = require('html2canvas')
+const loadJs = require('load-script')
 const typeMapping = {
   jpg: { fn: 'toJpeg', suffix: 'jpg' },
   png: { fn: 'toPng', suffix: 'png' },
@@ -89,6 +88,16 @@ export default {
     useHtml2canvas: {
       type: Boolean,
       default: undefined
+    },
+    /**
+     * 异步加载js优化首屏加载体积,可自定义cdn链接
+     */
+    cdns: {
+      type: Object,
+      default: () => ({
+        domtoimage: '//cdn.bootcdn.net/ajax/libs/dom-to-image/2.6.0/dom-to-image.js',
+        html2canvas: '//html2canvas.hertzen.com/dist/html2canvas.min.js'
+      })
     }
   },
   data () {
@@ -182,7 +191,7 @@ export default {
       const name = this.getFileName()
       const func = typeMapping[this.distType].fn
       if (!window.domtoimage) {
-        window.domtoimage = domtoimage
+        await this.loadScript(this.cdns.domtoimage)
       }
       return window.domtoimage[func](el, this.getOption(el))
         .then(data => {
@@ -198,7 +207,7 @@ export default {
       const el = this.$refs.targetDom
       const name = this.getFileName()
       if (!window.html2canvas) {
-        window.html2canvas = html2canvas
+        await this.loadScript(this.cdns.html2canvas)
       }
 
       if (this.cacheBust) {
@@ -228,6 +237,17 @@ export default {
         .catch(err => {
           return err
         })
+    },
+    loadScript (src, option = {}) {
+      return new Promise((resolve, reject) => {
+        loadJs(src, option, function (err, script) {
+          if (err) {
+            reject(err)
+          } else {
+            resolve()
+          }
+        })
+      })
     },
     imageLoadBlob (src) {
       const url = src + (/\?/.test(src) ? '&' : '?') + new Date().getTime()

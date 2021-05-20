@@ -2543,11 +2543,6 @@ balanced-match@^1.0.0:
   resolved "https://registry.npm.taobao.org/balanced-match/download/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-base64-arraybuffer@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npm.taobao.org/base64-arraybuffer/download/base64-arraybuffer-0.2.0.tgz#4b944fac0191aa5907afe2d8c999ccc57ce80f45"
-  integrity sha1-S5RPrAGRqlkHr+LYyZnMxXzoD0U=
-
 base64-js@^1.0.2:
   version "1.5.1"
   resolved "https://registry.npm.taobao.org/base64-js/download/base64-js-1.5.1.tgz?cache=0&sync_timestamp=1605123440207&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbase64-js%2Fdownload%2Fbase64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
@@ -3815,13 +3810,6 @@ css-initials@^0.3.1:
   resolved "https://registry.npm.taobao.org/css-initials/download/css-initials-0.3.1.tgz#0406d78e586fd12b9984a3f7d8a87fcbb2073208"
   integrity sha1-BAbXjlhv0SuZhKP32Kh/y7IHMgg=
 
-css-line-break@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/css-line-break/download/css-line-break-1.1.1.tgz#d5e9bdd297840099eb0503c7310fd34927a026ef"
-  integrity sha1-1em90peEAJnrBQPHMQ/TSSegJu8=
-  dependencies:
-    base64-arraybuffer "^0.2.0"
-
 css-loader@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npm.taobao.org/css-loader/download/css-loader-2.1.1.tgz?cache=0&sync_timestamp=1604507137425&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcss-loader%2Fdownload%2Fcss-loader-2.1.1.tgz#d8254f72e412bb2238bb44dd674ffbef497333ea"
@@ -4354,11 +4342,6 @@ dom-serializer@0:
   dependencies:
     domelementtype "^2.0.1"
     entities "^2.0.0"
-
-dom-to-image@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/dom-to-image/-/dom-to-image-2.6.0.tgz#8a503608088c87b1c22f9034ae032e1898955867"
-  integrity sha1-ilA2CAiMh7HCL5A0rgMuGJiVWGc=
 
 domain-browser@^1.1.1:
   version "1.2.0"
@@ -5981,13 +5964,6 @@ html-webpack-plugin@^3.2.0:
     tapable "^1.0.0"
     toposort "^1.0.0"
     util.promisify "1.0.0"
-
-html2canvas@^1.0.0-rc.7:
-  version "1.0.0-rc.7"
-  resolved "https://registry.npm.taobao.org/html2canvas/download/html2canvas-1.0.0-rc.7.tgz#70c159ce0e63954a91169531894d08ad5627ac98"
-  integrity sha1-cMFZzg5jlUqRFpUxiU0IrVYnrJg=
-  dependencies:
-    css-line-break "1.1.1"
 
 htmlparser2@^3.3.0:
   version "3.10.1"
@@ -7650,6 +7626,11 @@ load-json-file@^4.0.0:
     parse-json "^4.0.0"
     pify "^3.0.0"
     strip-bom "^3.0.0"
+
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ=
 
 loader-fs-cache@^1.0.0:
   version "1.0.3"
